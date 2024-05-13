@@ -1,6 +1,8 @@
 from PIL import Image
 import numpy as np
 
+from scipy.signal import convolve2d as c2d
+
 # This is an approximation of the mexican hat wavelet
 # This multiplier increases the brightness of the output.
 MULTIPLIER = 2
@@ -28,33 +30,7 @@ def wavelet_decomposition(img:np.array):
             to the output image. 
             Convert it into an image with Image.fromarray()
     """
-    # Get the height and width of the image
-    height,width =img.shape[0],img.shape[1]
-
-    # Get the height and width of the kernel
-    kernel_height,kernel_width = wd_kernel.shape[0],wd_kernel.shape[1]
-
-    # Create a new image of original img size minus the border 
-    # where the convolution can't be applied
-    new_img = np.zeros((height-kernel_height+1,width-kernel_width+1,3)) 
-
-    # Loop through each pixel in the image
-    # But skip the outer edges of the image
-    for i in range(kernel_height//2, height-kernel_height//2-1):
-        for j in range(kernel_width//2, width-kernel_width//2-1):
-            # Extract a window of pixels around the current pixel
-            window = img[i-kernel_height//2 : i+kernel_height//2+1,
-                         j-kernel_width//2 : j+kernel_width//2+1]
-
-            # Apply the convolution to the window and set the result
-            #   as the value of the current pixel in the new image
-            new_img[i, j, 0] = int(np.sum(window[:,:,0] * wd_kernel))
-            new_img[i, j, 1] = int(np.sum(window[:,:,1] * wd_kernel))
-            new_img[i, j, 2] = int(np.sum(window[:,:,2] * wd_kernel))
-
-    # Clip values to the range 0-255
-    new_img = np.clip(new_img, 0, 255)
-    return new_img.astype(np.uint8)
+    return c2d(img, wd_kernel)
 
 def standard_dev(img:np.array):
     """Passes a standard deviation kernel over the image
