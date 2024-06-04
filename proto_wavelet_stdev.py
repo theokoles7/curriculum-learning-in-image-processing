@@ -91,7 +91,7 @@ def standard_dev(img:np.array):
     return new_img.astype(np.uint8), new_img.sum()
 
 # Load the image.
-image = Image.open('dog3.jpg')
+image = Image.open('images/smiley_face.jpeg')
 
 # Turn the image into an array and act upon it.
 stdev_image, summation = standard_dev(wavelet_decomposition(np.asarray(image)))

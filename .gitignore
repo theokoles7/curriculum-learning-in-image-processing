@@ -1,0 +1,11 @@
+# Build files
+__pycache__
+
+# Images
+images
+
+# Logs
+logs
+
+# Output
+output
