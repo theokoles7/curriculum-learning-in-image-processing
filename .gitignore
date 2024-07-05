@@ -1,0 +1,14 @@
+# Build files
+__pycache__
+
+# Datasets
+data
+
+# Logs
+logs
+
+# Output/reports
+output
+
+# Scratch files
+*scratch*
