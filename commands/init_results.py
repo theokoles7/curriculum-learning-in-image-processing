@@ -24,8 +24,8 @@ def init_results() -> None:
         for model in ["cnn"]:
             for dataset in ["cifar10", "cifar100"]:
                 for curriculum in ["none", "rmse", "spatial_frequency", "wavelet_energy", "wavelet_entropy"]:
-                    for epochs in ["50", "100", "200"]:
-                        for batch_size in ["8", "16", "32", "64"]:
+                    for epochs in [50, 100, 200]:
+                        for batch_size in [8, 16, 32, 64]:
                             
                             if curriculum != "none":
                                 for by_batch in [True, False]:
