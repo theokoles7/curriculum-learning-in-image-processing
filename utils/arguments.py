@@ -45,6 +45,11 @@ __output.add_argument(
     help =          "Path at which output files/reports will be written. Defaults to \'./output/\'."
 )
 
+# INITIALIZE RESULTS ===============================================================================
+__init_results:     ArgumentParser =    __sub_parser.add_parser(
+    name =          "init-results",
+    help =          "Initialize results file."
+)
 
 # RUN JOB ==========================================================================================
 __job:              ArgumentParser =    __sub_parser.add_parser(
@@ -94,7 +99,7 @@ __dataset:          _ArgumentGroup =    __job.add_argument_group("Dataset")
 __dataset.add_argument(
     "dataset",
     type =          str,
-    choices =       ["cifar10"],
+    choices =       ["cifar10", "cifar100"],
     default =       "cifar10",
     help =          "Dataset selection. Defaults to \'cifar10\'."
 )
@@ -119,9 +124,16 @@ __curriculum:       _ArgumentGroup =    __job.add_argument_group("Curriculum")
 __curriculum.add_argument(
     "--curriculum",
     type =          str,
-    choices =       ["wavelet_energy", "wavelet_entropy", "none"],
+    choices =       ["rmse", "spatial_frequency", "wavelet_energy", "wavelet_entropy", "none"],
     default =       None,
     help =          "Curriculum selection. Defaults to None."
+)
+
+__curriculum.add_argument(
+    "--by_batch",
+    action =        "store_true",
+    default =       False,
+    help =          "Sort individual batches, instead of entire dataset. Defaults to False."
 )
 
 # RUN EXPERIENT ====================================================================================
