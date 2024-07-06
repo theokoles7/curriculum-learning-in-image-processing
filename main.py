@@ -1,6 +1,6 @@
 """Drive application."""
 
-from commands   import Job
+from commands   import init_results, Job
 from utils  import ARGS, BANNER, LOGGER
 
 if __name__ == "__main__":
@@ -12,10 +12,12 @@ if __name__ == "__main__":
 
         # Match command
         match ARGS.cmd:
+            
+            case "init-results":    init_results()
 
-            case "run-job":
-
-                Job().run()
+            case "run-job":         Job().run()
+            
+            case _:                 raise NotImplementedError(f"{ARGS.cmd} is not a valid command.")
 
     except KeyboardInterrupt:
 
