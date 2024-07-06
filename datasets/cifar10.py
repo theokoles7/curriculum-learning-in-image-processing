@@ -6,8 +6,8 @@ from torch.utils.data       import DataLoader
 from torchvision.datasets   import CIFAR10
 from torchvision.transforms import Compose, Normalize, Resize, ToTensor
 
-from curriculums            import curriculums
-from utils                  import ARGS, LOGGER
+from curriculums            import curriculums, CurriculumSampler
+from utils                  import LOGGER
 
 class Cifar10():
     """The CIFAR-10 dataset (https://www.cs.toronto.edu/~kriz/cifar.html) consists of 60000 32x32 
@@ -21,7 +21,8 @@ class Cifar10():
     def __init__(self, 
             path:       str =   "data", 
             batch_size: int =   16, 
-            curriculum: str =   None
+            curriculum: str =   None,
+            by_batch:   bool =  False
         ):
         """Initialize Cifar10 dataset loaders.
 
@@ -30,6 +31,9 @@ class Cifar10():
             * batch_size    (int, optional):    Dataset batch size. Defaults to 16.
             * curriculum    (str, optional):    Curriculum by which dataset will be arranged. Defaults to None.
         """
+        # Record curriculum for collation function
+        self._curriculum: str =  curriculum
+        
         # Create transform
         self._logger.info("Initializing transform")
         transform = Compose([
@@ -48,7 +52,7 @@ class Cifar10():
         )
 
         # If curriculum was specified
-        if curriculum:
+        if curriculum and not by_batch:
             self._logger.info(f"Sorting training data by {curriculum}")
 
             # Determine sorted indeces
@@ -66,17 +70,32 @@ class Cifar10():
             train =         False,
             transform =     transform
         )
-
-        # Create training loader
-        self._logger.info("Creating train data loader.")
-        self.train_loader = DataLoader(
-            train_data,
-            batch_size =    batch_size,
-            pin_memory =    True,
-            num_workers =   4,
-            shuffle =       False if curriculum else True,
-            drop_last =     True
-        )
+        
+        # If curriculum was specified by batch
+        if curriculum and by_batch:
+            self._logger.info("Creating train data loader with batch sampler.")
+            
+            # Create dataloader with batch sampler
+            self.train_loader = DataLoader(
+                train_data,
+                pin_memory =    True,
+                num_workers =   4,
+                batch_sampler = CurriculumSampler(train_data, batch_size = batch_size, curriculum = curriculums[curriculum]) if curriculum and by_batch else None
+            )
+            
+        # Otherwise, create ordinary data loader
+        else:
+            self._logger.info("Creating train data loader.")
+            
+            # Create dataloader with batch sampler
+            self.train_loader = DataLoader(
+                train_data,
+                batch_size =    batch_size,
+                pin_memory =    True,
+                num_workers =   4,
+                shuffle =       False if curriculum else True,
+                drop_last =     False,
+            )
 
         # Create testing loader
         self._logger.info("Creating test data loader.")

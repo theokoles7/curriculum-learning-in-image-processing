@@ -6,8 +6,8 @@ from torch.utils.data       import DataLoader
 from torchvision.datasets   import CIFAR100
 from torchvision.transforms import Compose, Normalize, Resize, ToTensor
 
-from curriculums            import curriculums
-from utils                  import ARGS, LOGGER
+from curriculums            import curriculums, CurriculumSampler
+from utils                  import LOGGER
 
 class Cifar100():
     """This dataset is just like the CIFAR-10 
@@ -71,17 +71,32 @@ class Cifar100():
             train =         False,
             transform =     transform
         )
-
-        # Create training loader
-        self._logger.info("Creating train data loader.")
-        self.train_loader = DataLoader(
-            train_data,
-            batch_size =    batch_size,
-            pin_memory =    True,
-            num_workers =   4,
-            shuffle =       False if curriculum else True,
-            drop_last =     False
-        )
+        
+        # If curriculum was specified by batch
+        if curriculum and by_batch:
+            self._logger.info("Creating train data loader with batch sampler.")
+            
+            # Create dataloader with batch sampler
+            self.train_loader = DataLoader(
+                train_data,
+                pin_memory =    True,
+                num_workers =   4,
+                batch_sampler = CurriculumSampler(train_data, batch_size = batch_size, curriculum = curriculums[curriculum]) if curriculum and by_batch else None
+            )
+            
+        # Otherwise, create ordinary data loader
+        else:
+            self._logger.info("Creating train data loader.")
+            
+            # Create dataloader with batch sampler
+            self.train_loader = DataLoader(
+                train_data,
+                batch_size =    batch_size,
+                pin_memory =    True,
+                num_workers =   4,
+                shuffle =       False if curriculum else True,
+                drop_last =     False,
+            )
 
         # Create testing loader
         self._logger.info("Creating test data loader.")
