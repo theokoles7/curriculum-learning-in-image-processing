@@ -76,7 +76,7 @@ class Job():
             path =              f"{ARGS.output_path}/results.csv",
             model =             ARGS.model,
             dataset =           ARGS.dataset,
-            curriculum =        ARGS.curriculum,
+            curriculum =        ARGS.curriculum if ARGS.curriculum else "none",
             by_batch =          ARGS.by_batch,
             epochs =            ARGS.epochs,
             batch_size =        ARGS.batch_size,
@@ -126,13 +126,13 @@ class Job():
 
         # Open file
         file_out = read_csv(path)
-
+        
         # Record job results
         file_out.loc[
             (file_out["MODEL"]      ==  str(model))                 & 
             (file_out["DATASET"]    ==  str(dataset))               & 
             (file_out["CURRICULUM"] ==  str(curriculum))            & 
-            (file_out["BY BATCH"]   ==  str(by_batch))              &
+            (file_out["BY BATCH"]   ==  by_batch)                   &
             (file_out["EPOCHS"]     ==  epochs)                     &
             (file_out["BATCH SIZE"] ==  batch_size),
             ["AVG TRAIN ACCURACY", "AVG TRAIN LOSS", "AVG VALIDATION ACCURACY", "AVG VALIDATION LOSS", "TEST ACCURACY", "TEST LOSS"]] = avg_train_acc, avg_train_loss, avg_val_acc, avg_val_loss, test_acc, test_loss
