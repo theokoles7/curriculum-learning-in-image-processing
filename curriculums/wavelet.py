@@ -1,14 +1,19 @@
 """Wavelet transform metrics."""
 
+from warnings   import filterwarnings
+
 import pywt
 
 from numpy      import abs, array, finfo, hstack, log2, square, sum
 from pywt       import wavedec2, wavelist
 
+# Filter warnings
+filterwarnings("ignore")
+
 def wavelet_energy(
         image:      array, 
         wavelet:    str = "db2", 
-        level:      int = 3,
+        level:      int = 1,
         mode:       str = "periodization"
     ) -> int:
     """# Calculate the wavelet energy of an image.
@@ -29,9 +34,9 @@ def wavelet_energy(
     assert mode in pywt.Modes.modes,    f"Inavlid argument for mode: {mode}. Valid options: {pywt.Modes.modes}"
 
     # Perform wavelet transform & calculate energy
-    return sum(square(hstack(
-        [c.ravel() for c in wavedec2(image, wavelet = wavelet, level = level, mode = mode)]
-    )))
+
+    # Calculate energy
+    return sum(sum(square(coeff)) for coeff in wavedec2(image, wavelet=wavelet, level=level, mode=mode))
 
 def wavelet_entropy(
         image:      array, 
@@ -56,7 +61,7 @@ def wavelet_entropy(
     coefficients = []
 
     # For each level of coefficients computed...
-    for coefficient in pywt.wavedec2(image, wavelet=wavelet, level=level, mode='periodization'):
+    for coefficient in pywt.wavedec2(data = image, wavelet = wavelet, level = level, mode = mode):
 
         # Add their absolute values to the list
         coefficients.extend(abs(coefficient).ravel())
