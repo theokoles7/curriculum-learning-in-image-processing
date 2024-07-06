@@ -1,3 +1,4 @@
 __all__ = ["job"]
 
-from commands.job   import Job
+from commands.init_results  import init_results
+from commands.job           import Job
