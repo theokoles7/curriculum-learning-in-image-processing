@@ -1,5 +1,5 @@
 MODEL,DATASET,CURRICULUM,BY BATCH,EPOCHS,BATCH SIZE,AVG TRAIN ACCURACY,AVG TRAIN LOSS,AVG VALIDATION ACCURACY,AVG VALIDATION LOSS,TEST ACCURACY,TEST LOSS
-cnn,cifar10,none,False,50,8,--,--,--,--,--,--
+cnn,cifar10,none,False,50,8,72.55792,0.8054899999999999,68.8978,0.94918,67.46,1.5914
 cnn,cifar10,none,False,50,16,--,--,--,--,--,--
 cnn,cifar10,none,False,50,32,--,--,--,--,--,--
 cnn,cifar10,none,False,50,64,--,--,--,--,--,--
