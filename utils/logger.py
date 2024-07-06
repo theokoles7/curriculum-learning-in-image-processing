@@ -1,6 +1,6 @@
 """Logging utilities."""
 
-from logging            import getLogger, FileHandler, Formatter, Logger, StreamHandler
+from logging            import getLogger, Formatter, Logger, StreamHandler
 from logging.handlers   import RotatingFileHandler
 from os                 import makedirs
 from sys                import stdout
@@ -21,7 +21,7 @@ stdout_handler:     StreamHandler =         StreamHandler(stdout)
 stdout_handler.setFormatter(Formatter("%(name)s | %(message)s"))
 LOGGER.addHandler(stdout_handler)
 
-# # Define file handler
-# file_handler:       RotatingFileHandler =   RotatingFileHandler(f"{ARGS.logging_path}/{ARGS.cmd}.log", maxBytes = 1048576, backupCount = 3)
-# file_handler.setFormatter(Formatter("%(asctime)s | %(levelname)s | %(name)s | %(message)s"))
-# LOGGER.addHandler(file_handler)
+# Define file handler
+file_handler:       RotatingFileHandler =   RotatingFileHandler(f"{ARGS.logging_path}/{ARGS.cmd}.log", maxBytes = 1048576, backupCount = 3)
+file_handler.setFormatter(Formatter("%(asctime)s | %(levelname)s | %(name)s | %(message)s"))
+LOGGER.addHandler(file_handler)
