@@ -33,7 +33,7 @@ do
                 git push origin main
 
                 # For each curriculum...
-                for curriculum in 
+                for curriculum in rmse, spatial_frequency, wavelet_energy, wavelet_entropy
                 do
 
                     # Run by entire dataset
