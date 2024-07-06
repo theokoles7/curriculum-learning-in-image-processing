@@ -52,7 +52,7 @@ def init_results() -> None:
                                     model,
                                     dataset,
                                     curriculum,
-                                    "--",
+                                    False,
                                     epochs,
                                     batch_size,
                                     "--", "--", "--", "--", "--", "--"
