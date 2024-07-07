@@ -35,7 +35,7 @@ cnn,cifar10,rmse,True,200,32,--,--,--,--,--,--
 cnn,cifar10,rmse,False,200,32,--,--,--,--,--,--
 cnn,cifar10,rmse,True,200,64,--,--,--,--,--,--
 cnn,cifar10,rmse,False,200,64,--,--,--,--,--,--
-cnn,cifar10,spatial_frequency,True,50,8,--,--,--,--,--,--
+cnn,cifar10,spatial_frequency,True,50,8,99.98155999999999,0.00010000000000000002,12.941800000000002,12.273986,12.85,10.3388
 cnn,cifar10,spatial_frequency,False,50,8,73.10479999999998,0.777986,56.179,1.24001,57.63,1.5833
 cnn,cifar10,spatial_frequency,True,50,16,--,--,--,--,--,--
 cnn,cifar10,spatial_frequency,False,50,16,--,--,--,--,--,--
