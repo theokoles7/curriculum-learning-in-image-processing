@@ -60,7 +60,7 @@ cnn,cifar10,spatial_frequency,False,200,32,--,--,--,--,--,--
 cnn,cifar10,spatial_frequency,True,200,64,--,--,--,--,--,--
 cnn,cifar10,spatial_frequency,False,200,64,--,--,--,--,--,--
 cnn,cifar10,wavelet_energy,True,50,8,--,--,--,--,--,--
-cnn,cifar10,wavelet_energy,False,50,8,--,--,--,--,--,--
+cnn,cifar10,wavelet_energy,False,50,8,73.08528,0.656862,57.15540000000001,1.2919040000000002,59.74,1.5172
 cnn,cifar10,wavelet_energy,True,50,16,--,--,--,--,--,--
 cnn,cifar10,wavelet_energy,False,50,16,--,--,--,--,--,--
 cnn,cifar10,wavelet_energy,True,50,32,--,--,--,--,--,--
