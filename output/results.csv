@@ -78,7 +78,7 @@ cnn,cifar10,wavelet_energy,False,100,64,95.21978000000001,0.05265200000000001,72
 cnn,cifar10,wavelet_energy,True,200,8,99.99753000000001,0.00010000000000000002,12.47025,10.787293,12.34,12.5225
 cnn,cifar10,wavelet_energy,False,200,8,75.54379,0.6606565000000001,58.9308,1.245925,63.39,0.4377
 cnn,cifar10,wavelet_energy,True,200,16,--,--,--,--,--,--
-cnn,cifar10,wavelet_energy,False,200,16,--,--,--,--,--,--
+cnn,cifar10,wavelet_energy,False,200,16,90.35787,0.273316,70.9519,1.0383505,75.02,0.7477
 cnn,cifar10,wavelet_energy,True,200,32,--,--,--,--,--,--
 cnn,cifar10,wavelet_energy,False,200,32,--,--,--,--,--,--
 cnn,cifar10,wavelet_energy,True,200,64,--,--,--,--,--,--
