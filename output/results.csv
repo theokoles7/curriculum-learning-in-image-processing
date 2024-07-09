@@ -167,7 +167,7 @@ cnn,cifar100,spatial_frequency,True,200,32,--,--,--,--,--,--
 cnn,cifar100,spatial_frequency,False,200,32,--,--,--,--,--,--
 cnn,cifar100,spatial_frequency,True,200,64,--,--,--,--,--,--
 cnn,cifar100,spatial_frequency,False,200,64,--,--,--,--,--,--
-cnn,cifar100,wavelet_energy,True,50,8,--,--,--,--,--,--
+cnn,cifar100,wavelet_energy,True,50,8,99.98783999999999,0.00010000000000000002,1.2201999999999997,11.846730000000003,1.21,9.0417
 cnn,cifar100,wavelet_energy,False,50,8,34.09612,1.2368099999999997,14.399800000000003,4.057163999999999,13.69,4.2542
 cnn,cifar100,wavelet_energy,True,50,16,--,--,--,--,--,--
 cnn,cifar100,wavelet_energy,False,50,16,--,--,--,--,--,--
