@@ -120,7 +120,7 @@ cnn,cifar100,none,False,200,16,--,--,--,--,--,--
 cnn,cifar100,none,False,200,32,--,--,--,--,--,--
 cnn,cifar100,none,False,200,64,--,--,--,--,--,--
 cnn,cifar100,rmse,True,50,8,--,--,--,--,--,--
-cnn,cifar100,rmse,False,50,8,--,--,--,--,--,--
+cnn,cifar100,rmse,False,50,8,34.208560000000006,1.4760739999999999,13.4762,4.419162000000001,15.01,4.3556
 cnn,cifar100,rmse,True,50,16,--,--,--,--,--,--
 cnn,cifar100,rmse,False,50,16,--,--,--,--,--,--
 cnn,cifar100,rmse,True,50,32,--,--,--,--,--,--
