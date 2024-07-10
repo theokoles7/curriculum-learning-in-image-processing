@@ -208,7 +208,7 @@ cnn,cifar100,wavelet_entropy,False,100,32,81.77398,0.34408199999999994,24.7437,6
 cnn,cifar100,wavelet_entropy,True,100,64,99.78779999999999,0.0002,2.269,23.993472,2.33,17.0679
 cnn,cifar100,wavelet_entropy,False,100,64,82.50597999999998,0.26257,26.527200000000004,5.860576,33.6,4.3311
 cnn,cifar100,wavelet_entropy,True,200,8,--,--,--,--,--,--
-cnn,cifar100,wavelet_entropy,False,200,8,--,--,--,--,--,--
+cnn,cifar100,wavelet_entropy,False,200,8,36.43036,2.0460985,13.936750000000002,4.528791999999999,14.01,4.7211
 cnn,cifar100,wavelet_entropy,True,200,16,--,--,--,--,--,--
 cnn,cifar100,wavelet_entropy,False,200,16,--,--,--,--,--,--
 cnn,cifar100,wavelet_entropy,True,200,32,--,--,--,--,--,--
