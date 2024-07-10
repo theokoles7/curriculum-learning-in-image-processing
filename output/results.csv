@@ -158,7 +158,7 @@ cnn,cifar100,spatial_frequency,False,100,16,59.61385999999999,1.257934,25.601799
 cnn,cifar100,spatial_frequency,True,100,32,99.94456,0.000198,2.1525,19.520317999999996,2.11,21.3178
 cnn,cifar100,spatial_frequency,False,100,32,82.6177,0.397685,30.322099999999995,3.870075,31.45,5.1608
 cnn,cifar100,spatial_frequency,True,100,64,--,--,--,--,--,--
-cnn,cifar100,spatial_frequency,False,100,64,--,--,--,--,--,--
+cnn,cifar100,spatial_frequency,False,100,64,86.83921999999998,0.217713,29.568199999999997,4.393895,32.33,4.3199
 cnn,cifar100,spatial_frequency,True,200,8,--,--,--,--,--,--
 cnn,cifar100,spatial_frequency,False,200,8,--,--,--,--,--,--
 cnn,cifar100,spatial_frequency,True,200,16,--,--,--,--,--,--
