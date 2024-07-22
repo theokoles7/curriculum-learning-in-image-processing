@@ -4,7 +4,7 @@ cnn,cifar10,rmse,False,50,16,86.38208,0.772064,62.17059999999999,1.350708,67.24,
 cnn,cifar10,spatial_frequency,True,50,16,99.96508,0.00010000000000000002,14.906600000000003,10.105064,14.98,10.1311
 cnn,cifar10,spatial_frequency,False,50,16,86.35136,0.463024,66.50179999999999,1.667766,71.19,0.6952
 cnn,cifar10,wavelet_energy,True,50,16,--,--,--,--,--,--
-cnn,cifar10,wavelet_energy,False,50,16,--,--,--,--,--,--
+cnn,cifar10,wavelet_energy,False,50,16,86.20480000000002,0.7540680000000001,65.1176,1.3425340000000003,66.76,0.9524
 cnn,cifar10,wavelet_entropy,True,50,16,--,--,--,--,--,--
 cnn,cifar10,wavelet_entropy,False,50,16,--,--,--,--,--,--
 cnn,cifar100,rmse,True,50,16,--,--,--,--,--,--
