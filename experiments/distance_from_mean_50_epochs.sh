@@ -25,11 +25,11 @@ do
                     --epochs        $epochs     \
                     $model                      \
                     $dataset                    \
-                    --batch_size    $batch_size 
+                    --batch_size    $batch_size
 
                 # Push updated results
                 git add ./output/distance_from_mean_results.csv
-                git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | control"
+                git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | control | from mean"
                 git push origin main
 
                 # For each curriculum...
@@ -43,11 +43,12 @@ do
                         $dataset                    \
                         --batch_size    $batch_size \
                         --curriculum    $curriculum \
-                        
+                        --sort_mean
+
 
                     # Push updated results
                     git add ./output/distance_from_mean_results.csv
-                    git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | $curriculum"
+                    git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | $curriculum | from mean"
                     git push origin main
 
                     # Run by batch
@@ -57,11 +58,12 @@ do
                         $dataset                    \
                         --batch_size    $batch_size \
                         --curriculum    $curriculum \
-                        --by_batch
+                        --by_batch                  \
+                        --sort_mean
 
                     # Push updated results
                     git add ./output/distance_from_mean_results.csv
-                    git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | $curriculum | by-batch"
+                    git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | $curriculum | by-batch | from mean"
                     git push origin main
 
                 done

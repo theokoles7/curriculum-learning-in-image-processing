@@ -1,14 +1,16 @@
 """Initialize dataset based on selection."""
 
-from datasets.cifar10   import Cifar10
-from datasets.cifar100  import Cifar100
+from datasets.cifar10 import Cifar10
+from datasets.cifar100 import Cifar100
+
 
 def get_dataset(
-    dataset:    str,
-    path:       str =   "data",
-    batch_size: int =   16,
-    curriculum: str =   None,
-    by_batch:   bool =  False
+    dataset: str,
+    path: str = "data",
+    batch_size: int = 16,
+    curriculum: str = None,
+    by_batch: bool = False,
+    sort_mean: bool = False,
 ) -> Cifar10 | Cifar100:
     """Initialize and return dataset loaders based on selection.
 
@@ -26,8 +28,23 @@ def get_dataset(
     match dataset:
 
         # Return valid dataset choices
-        case "cifar10":     return Cifar10( path = f"{path}/cifar10",  batch_size = batch_size, curriculum = curriculum, by_batch = by_batch)
-        case "cifar100":    return Cifar100(path = f"{path}/cifar100", batch_size = batch_size, curriculum = curriculum, by_batch = by_batch)
+        case "cifar10":
+            return Cifar10(
+                path=f"{path}/cifar10",
+                batch_size=batch_size,
+                curriculum=curriculum,
+                by_batch=by_batch,
+                sort_mean=sort_mean,
+            )
+        case "cifar100":
+            return Cifar100(
+                path=f"{path}/cifar100",
+                batch_size=batch_size,
+                curriculum=curriculum,
+                by_batch=by_batch,
+                sort_mean=sort_mean,
+            )
 
         # Raise warning for others
-        case _: raise ValueError(f"{dataset} is not a valid dataset seleciton.")
+        case _:
+            raise ValueError(f"{dataset} is not a valid dataset seleciton.")
