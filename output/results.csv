@@ -10,7 +10,7 @@ cnn,cifar10,wavelet_entropy,False,50,16,86.23123999999999,0.3365200000000001,68.
 cnn,cifar100,rmse,True,50,16,99.95476000000001,0.00010000000000000002,1.9443999999999997,16.551726,1.83,16.6988
 cnn,cifar100,rmse,False,50,16,54.68924,1.549536,22.594399999999997,4.222002,25.87,4.7582
 cnn,cifar100,spatial_frequency,True,50,16,--,--,--,--,--,--
-cnn,cifar100,spatial_frequency,False,50,16,--,--,--,--,--,--
+cnn,cifar100,spatial_frequency,False,50,16,54.344879999999996,2.153064,24.878600000000002,4.653302,28.0,4.8791
 cnn,cifar100,wavelet_energy,True,50,16,--,--,--,--,--,--
 cnn,cifar100,wavelet_energy,False,50,16,--,--,--,--,--,--
 cnn,cifar100,wavelet_entropy,True,50,16,--,--,--,--,--,--
