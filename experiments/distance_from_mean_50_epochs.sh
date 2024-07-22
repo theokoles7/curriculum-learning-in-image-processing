@@ -30,7 +30,7 @@ do
                 # Push updated results
                 git add ./output/distance_from_mean_results.csv
                 git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | control | from mean"
-                git push origin main
+                git push origin Distance_From_Mean
 
                 # For each curriculum...
                 for curriculum in rmse, spatial_frequency, wavelet_energy, wavelet_entropy
@@ -49,7 +49,7 @@ do
                     # Push updated results
                     git add ./output/distance_from_mean_results.csv
                     git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | $curriculum | from mean"
-                    git push origin main
+                    git push origin Distance_From_Mean
 
                     # Run by batch
                     python -m main run-job          \
@@ -64,7 +64,7 @@ do
                     # Push updated results
                     git add ./output/distance_from_mean_results.csv
                     git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | $curriculum | by-batch | from mean"
-                    git push origin main
+                    git push origin Distance_From_Mean
 
                 done
 
