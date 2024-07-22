@@ -1,6 +1,6 @@
 MODEL,DATASET,CURRICULUM,BY BATCH,EPOCHS,BATCH SIZE,AVG TRAIN ACCURACY,AVG TRAIN LOSS,AVG VALIDATION ACCURACY,AVG VALIDATION LOSS,TEST ACCURACY,TEST LOSS
 cnn,cifar10,rmse,True,50,16,--,--,--,--,--,--
-cnn,cifar10,rmse,False,50,16,86.17896,0.856258,60.06360000000001,1.71941,59.95,0.7767
+cnn,cifar10,rmse,False,50,16,86.38208,0.772064,62.17059999999999,1.350708,67.24,1.1872
 cnn,cifar10,spatial_frequency,True,50,16,--,--,--,--,--,--
 cnn,cifar10,spatial_frequency,False,50,16,--,--,--,--,--,--
 cnn,cifar10,wavelet_energy,True,50,16,--,--,--,--,--,--
