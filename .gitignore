@@ -10,6 +10,7 @@ logs
 # Output/reports
 output/*
 !output/results.csv
+!output/distance_from_mean_results.csv
 
 # Scratch files
 *scratch*

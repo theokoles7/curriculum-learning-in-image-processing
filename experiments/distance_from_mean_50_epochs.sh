@@ -28,7 +28,7 @@ do
                     --batch_size    $batch_size 
 
                 # Push updated results
-                git add ./output/results.csv
+                git add ./output/distance_from_mean_results.csv
                 git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | control"
                 git push origin main
 
@@ -42,10 +42,11 @@ do
                         $model                      \
                         $dataset                    \
                         --batch_size    $batch_size \
-                        --curriculum    $curriculum
+                        --curriculum    $curriculum \
+                        
 
                     # Push updated results
-                    git add ./output/results.csv
+                    git add ./output/distance_from_mean_results.csv
                     git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | $curriculum"
                     git push origin main
 
@@ -59,7 +60,7 @@ do
                         --by_batch
 
                     # Push updated results
-                    git add ./output/results.csv
+                    git add ./output/distance_from_mean_results.csv
                     git commit -m "$(date +'%F %T'): $model | $dataset | $epochs | $batch_size | $curriculum | by-batch"
                     git push origin main
 
