@@ -14,11 +14,12 @@ setup(
     license =           "MIT",
     url =               "https://github.com/theokoles7/Image-Complexity-by-Wavelet-Decomposition",
     packages =          find_packages(),
-    python_requries =   ">=3.10",
-    install_requries =  [
+    python_requires =   ">=3.10",
+    install_requires =  [
         "matplotlib",
         "numpy",
         "pandas",
+        "PyWavelets",
         "scikit-learn",
         "termcolor",
         "torch",
