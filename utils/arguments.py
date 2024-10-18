@@ -124,7 +124,7 @@ __curriculum:       _ArgumentGroup =    __job.add_argument_group("Curriculum")
 __curriculum.add_argument(
     "--curriculum",
     type =          str,
-    choices =       ["rmse", "spatial_frequency", "wavelet_energy", "wavelet_entropy", "none"],
+    choices =       ["edge_density", "rmse", "spatial_frequency", "wavelet_energy", "wavelet_entropy", "none"],
     default =       None,
     help =          "Curriculum selection. Defaults to None."
 )
